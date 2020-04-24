@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y \
   libexpat1-dev \
   gettext \
   && wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip \
-  && unzip platform-tools-latest-linux.zip && cd ./platform-tools && cp adb fastboot /usr/bin/ && chmod +x /root/bin/adb && rm -r ./platform-tools-latest-linux* \
+  && unzip platform-tools-latest-linux.zip && cd ./platform-tools && cp adb fastboot /usr/bin/ && rm -r ./platform-tools-latest-linux* \
   && git clone https://github.com/git/git.git && cd git && git checkout v2.26.2 && make && make install && cp git /usr/bin && rm -r ./git \
   && rm -rf /var/lib/apt/lists/* \
   && cd /tmp \
