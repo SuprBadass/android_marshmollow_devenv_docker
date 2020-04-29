@@ -28,12 +28,13 @@ RUN apt-get update && apt-get install -y \
   openssh-client \
   openssh-server \
   vim \
+  tmux \
   libcurl4-openssl-dev \
   libexpat1-dev \
   gettext \
   && wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip \
-  && unzip platform-tools-latest-linux.zip && cd ./platform-tools && cp adb fastboot /usr/bin/ && rm -r ./platform-tools* \
-  && git clone https://github.com/git/git.git && cd git && git checkout v2.26.2 && make && make install && cp git /usr/bin && rm -r ./git \
+  && unzip platform-tools-latest-linux.zip && cd ./platform-tools && cp adb fastboot /usr/bin/ && rm -rf ./platform-tools* \
+  && git clone https://github.com/git/git.git && cd git && git checkout v2.26.2 && make && make install && cp git /usr/bin && rm -rf ./git \
   && rm -rf /var/lib/apt/lists/* \
   && cd /tmp \
   && wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz \
