@@ -33,15 +33,15 @@ RUN apt-get update && apt-get install -y \
   libexpat1-dev \
   gettext \
   && wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip \
-  && unzip platform-tools-latest-linux.zip && cd ./platform-tools && cp adb fastboot /usr/bin/ && rm -rf ./platform-tools* \
-  && git clone https://github.com/git/git.git && cd git && git checkout v2.26.2 && make && make install && cp git /usr/bin && rm -rf ./git \
+  && unzip platform-tools-latest-linux.zip && cd ./platform-tools && cp adb fastboot /root/bin/ && chmod +x /root/bin/adb /root/bin/fastboot && cd .. && rm -rf ./platform-tools* \
+  && git clone https://github.com/git/git.git && cd git && git checkout v2.26.2 && make && make install && cp git /usr/bin && cd .. && rm -rf ./git \
   && rm -rf /var/lib/apt/lists/* \
   && cd /tmp \
   && wget https://www.python.org/ftp/python/3.6.3/Python-3.6.3.tgz \
   && tar -xvf Python-3.6.3.tgz \
   && cd Python-3.6.3 \
   && ./configure --enable-optimizations --prefix /usr \
-  && make -j8 && make install && rm -r ./Python-3.6.3 \
+  && make -j8 && make install && cd .. && rm -rf ./Python-3.6.3 \
   && /usr/bin/python3 -m pip install --upgrade pip \
   && /usr/bin/python3 -m pip install -U pylint matplotlib numpy pexpect pillowfight pyserial scipy==1.1.0 \
   && curl https://storage.googleapis.com/git-repo-downloads/repo > /bin/repo \
